@@ -12,7 +12,7 @@ export const Item = styled('li')`
   background-color
 `;
 
-export const Link = styled('a')`
+export const LinkA = styled('a')`
   text-decoration: none;
   height: 455px;
 `;

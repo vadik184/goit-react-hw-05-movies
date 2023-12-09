@@ -12,3 +12,10 @@ export const searchFilm = async query => {
   );
   return data;
 };
+
+export const getFilm = async id => {
+  const { data } = await axios.get(
+    `movie/${id}?api_key=${apiKey}&language=en-US`
+  );
+  return data;
+};
