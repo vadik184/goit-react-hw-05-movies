@@ -19,3 +19,28 @@ export const getFilm = async id => {
   );
   return data;
 };
+
+export const getCasts = async id => {
+  try {
+    const { data } = await axios.get(
+      `movie/${id}/credits?api_key=${apiKey}&language=en-US`
+    );
+    console.log('Casts data:', data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching casts', error);
+    throw error;
+  }
+};
+export const getReviews = async id => {
+  try {
+    const { data } = await axios.get(
+      `movie/${id}/reviews?api_key=${apiKey}&language=en-US`
+    );
+    console.log('Casts data:', data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching casts', error);
+    throw error;
+  }
+};

@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { getFilm } from 'API/Api';
-import { Container } from './MovieDetailsstyled';
+import {
+  Container,
+  DetailContainer,
+  DetailText,
+  DetailTitle,
+  FilmTitle,
+  GenresList,
+  Poster,
+} from './MovieDetailsstyled';
 
 export const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const location = useLocation();
+  const backLink = location.state?.from ?? '/movies';
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -27,27 +37,41 @@ export const MovieDetails = () => {
   return (
     <>
       <div>
-        <Link to={'/'}>
+        <Link to={backLink}>
           <button>Go Back</button>
         </Link>
         <Container>
-          <img
+          <Poster
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt={movie.title}
           />
 
-          <div>
-            <h2>{movie.title}</h2>
-            <h3>Overview</h3>
-            <p>{movie.overview}</p>
-            <h3>Genres</h3>
-            <p>
-              {movie.genres.map(({ id, name }) => {
-                return <li key={id}>{name}</li>;
-              })}
-            </p>
-          </div>
+          <DetailContainer>
+            <FilmTitle>{movie.title}</FilmTitle>
+            <DetailTitle>Overview</DetailTitle>
+            <DetailText>{movie.overview}</DetailText>
+            <DetailTitle>Genres</DetailTitle>
+            <DetailText>
+              <GenresList>
+                {movie.genres.map(({ id, name }) => {
+                  return <li key={id}>{name} /</li>;
+                })}
+              </GenresList>
+            </DetailText>
+            <div>
+              <ul>
+                <li>
+                  <Link to={`/movies/${id}/cast`}>Cast</Link>
+                </li>
+                <li>
+                  <Link to={`/movies/${id}/reviews`}>Reviews</Link>
+                </li>
+              </ul>
+            </div>
+          </DetailContainer>
         </Container>
+
+        <Outlet />
       </div>
     </>
   );

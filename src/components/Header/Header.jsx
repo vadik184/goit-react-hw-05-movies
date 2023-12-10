@@ -5,10 +5,10 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <NavLink to={'/'}>1</NavLink>
+            <NavLink to={'/'}>HOME</NavLink>
           </li>
           <li>
-            <NavLink to={'/movies'}>2</NavLink>
+            <NavLink to={'/movies'}>MOVIES</NavLink>
           </li>
         </ul>
       </nav>

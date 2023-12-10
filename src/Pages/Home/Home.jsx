@@ -10,7 +10,6 @@ export const HomePage = () => {
       try {
         const trndingFilms = await getTrending();
         setFilms(trndingFilms.results);
-        console.log(trndingFilms.results);
       } catch (error) {
         console.error(error.massage);
       }
