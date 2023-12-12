@@ -1,5 +1,12 @@
 import React from 'react';
-import { List, Item, Img, Title } from 'components/FilmList/FilmListStyled';
+import {
+  List,
+  Item,
+  Img,
+  Title,
+  Titlediv,
+  ImgDiv,
+} from 'components/FilmList/FilmListStyled';
 import { Link, useLocation } from 'react-router-dom';
 
 export const FilmList = ({ films }) => {
@@ -12,16 +19,20 @@ export const FilmList = ({ films }) => {
       {films.map(film => (
         <Item key={film.id}>
           <Link to={`/movies/${film.id}`} state={{ from: location }}>
-            <Img
-              src={
-                film.poster_path
-                  ? `https://image.tmdb.org/t/p/w500/${film.poster_path}`
-                  : notFindImg
-              }
-              width={250}
-              alt="poster"
-            />
-            <Title>{film.title || film.name}</Title>
+            <ImgDiv>
+              <Img
+                src={
+                  film.poster_path
+                    ? `https://image.tmdb.org/t/p/w500/${film.poster_path}`
+                    : notFindImg
+                }
+                width={250}
+                alt="poster"
+              />
+            </ImgDiv>
+            <Titlediv>
+              <Title>{film.title || film.name}</Title>
+            </Titlediv>
           </Link>
         </Item>
       ))}

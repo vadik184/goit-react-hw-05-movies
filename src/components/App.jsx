@@ -24,9 +24,6 @@ export const App = () => {
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Review />} />
         </Route>
-        {/* <Route path="/movies/:id" element={<MovieDetails />} />
-        <Route path="/movies/:id/cast" element={<Cast />} /> */}
-        {/* </Route> */}
       </Route>
     </Routes>
   );

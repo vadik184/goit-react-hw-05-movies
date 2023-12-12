@@ -2,6 +2,7 @@ import { getTrending } from 'API/Api';
 import { FilmList } from 'components/FilmList/FilmList';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { HomeStyled } from './Homestyled';
 
 export const HomePage = () => {
   const [films, setFilms] = useState([]);
@@ -19,7 +20,7 @@ export const HomePage = () => {
 
   return (
     <>
-      <h1>Trending today</h1>
+      <HomeStyled>Trending today</HomeStyled>
       <FilmList films={films} />
     </>
   );
