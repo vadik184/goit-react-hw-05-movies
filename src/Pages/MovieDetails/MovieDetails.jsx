@@ -63,7 +63,9 @@ export const MovieDetails = () => {
             <IconBack size="40" />
           </BtnBack>
         </Link>
-        <Container>
+        <Container
+          backgroundImage={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+        >
           <Poster
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt={movie.title}

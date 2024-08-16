@@ -6,6 +6,7 @@ import {
   Title,
   Titlediv,
   ImgDiv,
+  Cont,
 } from 'components/FilmList/FilmListStyled';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ export const FilmList = ({ films }) => {
       {films.map(film => (
         <Item key={film.id}>
           <Link to={`/movies/${film.id}`} state={{ from: location }}>
+            {' '}
             <ImgDiv>
               <Img
                 src={
@@ -29,10 +31,11 @@ export const FilmList = ({ films }) => {
                 width={250}
                 alt="poster"
               />
-            </ImgDiv>
-            <Titlediv>
               <Title>{film.title || film.name}</Title>
-            </Titlediv>
+            </ImgDiv>
+            {/* <Titlediv>
+              <Title>{film.title || film.name}</Title>
+            </Titlediv> */}
           </Link>
         </Item>
       ))}
