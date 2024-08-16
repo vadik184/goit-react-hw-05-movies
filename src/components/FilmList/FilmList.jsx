@@ -4,9 +4,7 @@ import {
   Item,
   Img,
   Title,
-  Titlediv,
   ImgDiv,
-  Cont,
 } from 'components/FilmList/FilmListStyled';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -33,9 +31,6 @@ export const FilmList = ({ films }) => {
               />
               <Title>{film.title || film.name}</Title>
             </ImgDiv>
-            {/* <Titlediv>
-              <Title>{film.title || film.name}</Title>
-            </Titlediv> */}
           </Link>
         </Item>
       ))}
